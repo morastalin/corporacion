@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="es">
+<head>
+    <title>La hora actual</title>
+    <link type="text/css" rel="stylesheet" href="/static/jquery-ui.css" />
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/jquery.ui.datepicker-es.js"></script>
+
+    <style>
+  		#draggable { width: 150px; height: 150px; padding: 0.5em; }
+  	</style>
+  	<script>
+  		$(function() {
+    		$( "#draggable" ).draggable();
+    		$.datepicker.setDefaults($.datepicker.regional["es"]);
+    		$( "#datepicker" ).datepicker();
+  		});
+  	</script>
+</head>
+<body>
+    <h1>Mi sitio de fecha/hora</h1>
+    <p>El momento actual es {{ fecha_actual }}.</p>
+	<div id="draggable" class="ui-widget-content">
+  		<p>Drag me around</p>
+	</div>
+    <hr>
+    <p>Date: <input type="text" id="datepicker"></p>
+    <form id = "formulario" method = "post" action = '' >{% csrf_token %}
+    	{{formulario.as_p}}
+    	<p><input type = 'submit' value = 'Confirmar' /></p>
+    </form>
+    <p>Gracias por visitar mi sitio.</p>
+</body>
+</html>

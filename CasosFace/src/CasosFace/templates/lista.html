@@ -1,0 +1,10 @@
+
+{% if lista %}
+    <ul> 
+         {% for link in lista %}
+             <p>{{ link.title }}</p>
+         {% endfor %}
+    </ul>
+{% else %}
+    <p>No links found.</p>
+{% endif %}
